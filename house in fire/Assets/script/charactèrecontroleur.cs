@@ -11,16 +11,19 @@ public class charactèrecontroleur : MonoBehaviour
 
     private InputAction moveAction;
 
+    SpriteRenderer spriteRenderer;
+
     //private InputAction jumpAction;
 
     //private int nbJumpLeft = 0;
-        
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         moveAction = InputSystem.actions.FindAction("Move");
-       // jumpAction = InputSystem.actions.FindAction("Jump");
+        // jumpAction = InputSystem.actions.FindAction("Jump");
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     /*
@@ -47,5 +50,7 @@ public class charactèrecontroleur : MonoBehaviour
             nbJumpLeft--;
         }
         */
+
+        spriteRenderer.flipX = rb.linearVelocityX < 0;
     }
 }
