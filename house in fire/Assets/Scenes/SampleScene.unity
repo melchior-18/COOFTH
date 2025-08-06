@@ -208,7 +208,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -8682974960766915992, guid: 90650add75392844ea321b628e27b54d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.87, y: 2.28}
@@ -318,7 +318,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  canUncrouch: 1
 --- !u!1 &97085759
 GameObject:
   m_ObjectHideFlags: 0
@@ -2460,7 +2459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3713094237343477050, guid: bd54135cc76fe9e45b2b186f6f0edc39, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.08
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3713094237343477050, guid: bd54135cc76fe9e45b2b186f6f0edc39, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2517,7 +2516,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 745988435636056627, guid: 729dc88488fa8e34583a3773d51d7dad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.09
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 745988435636056627, guid: 729dc88488fa8e34583a3773d51d7dad, type: 3}
       propertyPath: m_LocalPosition.y
