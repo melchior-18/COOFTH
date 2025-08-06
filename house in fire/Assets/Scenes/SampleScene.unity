@@ -329,6 +329,7 @@ GameObject:
   m_Component:
   - component: {fileID: 97085761}
   - component: {fileID: 97085760}
+  - component: {fileID: 97085762}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -2386,7 +2387,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.61960787}
   m_Origin: {x: -10, y: -5, z: 0}
   m_Size: {x: 30, y: 11, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
