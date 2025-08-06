@@ -12,6 +12,7 @@ public class charactèrecontroleur : MonoBehaviour
     private GameObject square;
     private Vector2 scaleChange;
     private Vector2 positionChange;
+    private Animator animator;
 
     private InputAction moveAction;
 
@@ -31,6 +32,7 @@ public class charactèrecontroleur : MonoBehaviour
         // jumpAction = InputSystem.actions.FindAction("Jump");
         spriteRenderer = GetComponent<SpriteRenderer>();
         crouchAction = InputSystem.actions.FindAction("Crouch");
+        animator = GetComponent<Animator>();
 
         square = GameObject.Find("Idle_0");
     }
@@ -48,6 +50,7 @@ public class charactèrecontroleur : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Vector2 move = moveAction.ReadValue<Vector2>();
         rb.linearVelocityX = move.x * moveSpeed;
         rb.linearVelocityY = move.y * moveSpeed;
@@ -64,8 +67,9 @@ public class charactèrecontroleur : MonoBehaviour
 
         if (crouchAction.WasPressedThisFrame() && moveSpeed == 5)
         {
+            animator.SetFloat("AbsSpeedX", Math.Abs(rb.linearVelocityX));
             moveSpeed = 2;
-            scaleChange = new Vector2(1f, 1f);
+            scaleChange = new Vector2(0.39f, 0.39f);
             square.transform.localScale = scaleChange;
             positionChange = new Vector2(square.transform.position.x, square.transform.position.y + square.transform.position.y/8);
             square.transform.position = positionChange;
@@ -74,7 +78,7 @@ public class charactèrecontroleur : MonoBehaviour
         if (crouchAction.WasReleasedThisFrame() && canUncrouch == true && moveSpeed == 2)
             {
                 moveSpeed = 5;
-                scaleChange = new Vector2(1f, 1.8676f);
+                scaleChange = new Vector2(0.54038f, 0.54038f);
                 square.transform.localScale = scaleChange;
                 positionChange = new Vector2(square.transform.position.x, square.transform.position.y - square.transform.position.y/9);
                 square.transform.position = positionChange;
