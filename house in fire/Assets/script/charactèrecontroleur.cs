@@ -67,7 +67,9 @@ public class charactèrecontroleur : MonoBehaviour
 
         if (crouchAction.WasPressedThisFrame() && moveSpeed == 5)
         {
-            animator.SetFloat("AbsSpeedX", Math.Abs(rb.linearVelocityX));
+            animator.SetFloat("AbsSpeedX", Mathf.Abs(rb.linearVelocityX));
+            animator.SetFloat("AbsSpeedY", Mathf.Abs(rb.linearVelocityY));
+            animator.SetFloat("AbsSpeedY", Mathf.Abs(rb.linearVelocityY));
             moveSpeed = 2;
             scaleChange = new Vector2(0.39f, 0.39f);
             square.transform.localScale = scaleChange;
