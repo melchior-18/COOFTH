@@ -62,14 +62,16 @@ public class charactèrecontroleur : MonoBehaviour
             nbJumpLeft--;
         }
         */
+        
+            animator.SetFloat("AbsSpeedY", Mathf.Abs(rb.linearVelocityY));
+            animator.SetFloat("AbsSpeedX",Mathf.Abs(rb.linearVelocityX));
+            animator.SetBool("jump",true));
 
-        spriteRenderer.flipX = rb.linearVelocityX < 0;
+    spriteRenderer.flipX = rb.linearVelocityX < 0;
 
         if (crouchAction.WasPressedThisFrame() && moveSpeed == 5)
         {
-            animator.SetFloat("AbsSpeedX", Mathf.Abs(rb.linearVelocityX));
-            animator.SetFloat("AbsSpeedY", Mathf.Abs(rb.linearVelocityY));
-            animator.SetFloat("AbsSpeedY", Mathf.Abs(rb.linearVelocityY));
+            animator.SetBool("crouch", true));
             moveSpeed = 2;
             scaleChange = new Vector2(0.39f, 0.39f);
             square.transform.localScale = scaleChange;
