@@ -12,7 +12,7 @@ public class charactèrecontroleur : MonoBehaviour
     private GameObject square;
     private Vector2 scaleChange;
     private Vector2 positionChange;
-    private Animator animator;
+    Animator animator;
 
     private InputAction moveAction;
 
@@ -63,11 +63,12 @@ public class charactèrecontroleur : MonoBehaviour
         }
         */
         
-            animator.SetFloat("AbsSpeedY", Mathf.Abs(rb.linearVelocityY));
-            animator.SetFloat("AbsSpeedX",Mathf.Abs(rb.linearVelocityX));
-            animator.SetBool("jump",true);
+        
+        animator.SetFloat("AbsSpeedY", Mathf.Abs(rb.linearVelocityY));
+        animator.SetFloat("AbsSpeedX",Mathf.Abs(rb.linearVelocityX));
+        animator.SetBool("jump",true);
 
-    spriteRenderer.flipX = rb.linearVelocityX < 0;
+        spriteRenderer.flipX = rb.linearVelocityX < 0;
 
         if (crouchAction.WasPressedThisFrame() && moveSpeed == 5)
         {
