@@ -5,11 +5,13 @@ using UnityEngine.InputSystem;
 public class charactèrecontroleur : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
-   // [SerializeField] private float jumpForce;
+    //[SerializeField] private float jumpForce;
     //[SerializeField] private LayerMask groundlayer;
+    public bool canUncrouch = true;
     private Rigidbody2D rb;
     private GameObject square;
     private Vector2 scaleChange;
+    private Vector2 positionChange;
 
     private InputAction moveAction;
 
@@ -60,18 +62,22 @@ public class charactèrecontroleur : MonoBehaviour
 
         spriteRenderer.flipX = rb.linearVelocityX < 0;
 
-        if (crouchAction.WasPressedThisFrame())
+        if (crouchAction.WasPressedThisFrame() && moveSpeed == 5)
         {
-            moveSpeed -= 3;
+            moveSpeed = 2;
             scaleChange = new Vector2(1f, 1f);
             square.transform.localScale = scaleChange;
+            positionChange = new Vector2(square.transform.position.x, square.transform.position.y + square.transform.position.y/8);
+            square.transform.position = positionChange;
         }
 
-        if (crouchAction.WasReleasedThisFrame())
-        {
-            moveSpeed += 3;
-            scaleChange = new Vector2(1f, 1.8676f);
-            square.transform.localScale = scaleChange;
-        }
+        if (crouchAction.WasReleasedThisFrame() && canUncrouch == true && moveSpeed == 2)
+            {
+                moveSpeed = 5;
+                scaleChange = new Vector2(1f, 1.8676f);
+                square.transform.localScale = scaleChange;
+                positionChange = new Vector2(square.transform.position.x, square.transform.position.y - square.transform.position.y/9);
+                square.transform.position = positionChange;
+            }
     }
 }
