@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class charactèrecontroleur : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
+    [SerializeField] barre_vie barreVie;
     //[SerializeField] private float jumpForce;
     //[SerializeField] private LayerMask groundlayer;
     private Rigidbody2D rb;
@@ -12,6 +13,8 @@ public class charactèrecontroleur : MonoBehaviour
     private Vector2 scaleChange;
     private Vector2 positionChange;
     Animator animator;
+    
+    [SerializeField] private bool IsBreathing = true;
 
     private InputAction moveAction;
 
@@ -50,44 +53,75 @@ public class charactèrecontroleur : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 move = moveAction.ReadValue<Vector2>();
-        rb.linearVelocityX = move.x * moveSpeed;
-        rb.linearVelocityY = move.y * moveSpeed;
-
-        /*
-        if (jumpAction.WasPressedThisFrame()&& nbJumpLeft>0)
+        if (barreVie.isDead == false)
         {
-            rb.AddForceY(jumpForce);
-            nbJumpLeft--;
-            animator.SetBool("jump",true);
-        }
-        */
-        
-        
-        animator.SetFloat("AbsSpeedY", Mathf.Abs(rb.linearVelocityY));
-        animator.SetFloat("AbsSpeedX", Mathf.Abs(rb.linearVelocityX));
-        //animator.SetBool("jump", true);
+            if (IsBreathing == false)
+            {
+                barreVie.PrendreDegats(20 * Time.deltaTime);
+            }
+            else
+            {
+                barreVie.PrendreDegats(-20 * Time.deltaTime);
+            }
 
-        spriteRenderer.flipX = rb.linearVelocityX < 0;
+            Vector2 move = moveAction.ReadValue<Vector2>();
+            rb.linearVelocityX = move.x * moveSpeed;
+            rb.linearVelocityY = move.y * moveSpeed;
+            /*
+            if (jumpAction.WasPressedThisFrame()&& nbJumpLeft>0)
+            {
+                rb.AddForceY(jumpForce);
+                nbJumpLeft--;
+                animator.SetBool("jump",true);
+            }
+            */
 
-        if (crouchAction.WasPressedThisFrame() && moveSpeed == 5)
-        {
-            animator.SetBool("crouch", true);
-            moveSpeed = 2;
-            scaleChange = new Vector2(0.39f, 0.39f);
-            square.transform.localScale = scaleChange;
-            positionChange = new Vector2(square.transform.position.x, square.transform.position.y + square.transform.position.y/8);
-            square.transform.position = positionChange;
-        }
 
-        if (crouchAction.WasReleasedThisFrame() && animator.GetBool("canUncrouch") == true && moveSpeed == 2)
+            animator.SetFloat("AbsSpeedY", Mathf.Abs(rb.linearVelocityY));
+            animator.SetFloat("AbsSpeedX", Mathf.Abs(rb.linearVelocityX));
+            //animator.SetBool("jump", true);
+
+            spriteRenderer.flipX = rb.linearVelocityX < 0;
+
+            if (crouchAction.WasPressedThisFrame() && moveSpeed == 5)
+            {
+                animator.SetBool("crouch", true);
+                moveSpeed = 2;
+                scaleChange = new Vector2(0.39f, 0.39f);
+                square.transform.localScale = scaleChange;
+                positionChange = new Vector2(square.transform.position.x,
+                    square.transform.position.y + square.transform.position.y / 8);
+                square.transform.position = positionChange;
+            }
+
+            if (crouchAction.WasReleasedThisFrame() && animator.GetBool("canUncrouch") == true && moveSpeed == 2)
             {
                 animator.SetBool("crouch", false);
                 moveSpeed = 5;
                 scaleChange = new Vector2(0.54038f, 0.54038f);
                 square.transform.localScale = scaleChange;
-                positionChange = new Vector2(square.transform.position.x, square.transform.position.y - square.transform.position.y/9);
+                positionChange = new Vector2(square.transform.position.x,
+                    square.transform.position.y - square.transform.position.y / 9);
                 square.transform.position = positionChange;
             }
+        }
+    }
+    
+    //  smoke conllusion
+    
+    void OnTriggerEnter2D( Collider2D col)
+    {
+        if (col.gameObject.tag == "Smoke")
+        {
+            IsBreathing = false;
+        }
+        
+    }
+    void OnTriggerExit2D( Collider2D col)
+    {
+        if (col.gameObject.tag == "Smoke")
+        {
+            IsBreathing = true;
+        }
     }
 }
