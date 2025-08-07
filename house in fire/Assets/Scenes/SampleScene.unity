@@ -376,8 +376,9 @@ GameObject:
   - component: {fileID: 148627353}
   - component: {fileID: 148627355}
   - component: {fileID: 148627354}
+  - component: {fileID: 148627356}
   m_Layer: 5
-  m_Name: Image
+  m_Name: barreDeVieImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -440,6 +441,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 148627352}
   m_CullTransparentMesh: 1
+--- !u!114 &148627356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148627352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d5fa6d8500d82849b6118bf37c96ea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barreDeVieImage: {fileID: 0}
+  vieMax: 100
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1112,7 +1127,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 192.32983, y: 205.56866}
+  m_AnchoredPosition: {x: 663.67, y: 452}
   m_SizeDelta: {x: 507.3403, y: 92.8626}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1382003370
