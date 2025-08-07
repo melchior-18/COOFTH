@@ -12,6 +12,8 @@ public class SmokePropagator : MonoBehaviour
 
     [SerializeField] private float lastUpdate = -Mathf.Infinity;
 
+    private GameObject smoke;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,6 +22,8 @@ public class SmokePropagator : MonoBehaviour
             Vector2Int localPlace = new Vector2Int(pos.x, pos.y);
             allPositions.Add(localPlace);
         }
+
+        smoke = GameObject.Find("Smoke");
     }
 
     // Update is called once per frame
