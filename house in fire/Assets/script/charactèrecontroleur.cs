@@ -7,12 +7,11 @@ public class charactèrecontroleur : MonoBehaviour
     [SerializeField] private float moveSpeed;
     //[SerializeField] private float jumpForce;
     //[SerializeField] private LayerMask groundlayer;
-    public bool canUncrouch = true;
     private Rigidbody2D rb;
     private GameObject square;
     private Vector2 scaleChange;
     private Vector2 positionChange;
-    private Animator animator;
+    Animator animator;
 
     private InputAction moveAction;
 
@@ -33,6 +32,7 @@ public class charactèrecontroleur : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         crouchAction = InputSystem.actions.FindAction("Crouch");
         animator = GetComponent<Animator>();
+        animator.SetBool("canUncrouch", true);
 
         square = GameObject.Find("Idle_0");
     }
@@ -50,7 +50,6 @@ public class charactèrecontroleur : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         Vector2 move = moveAction.ReadValue<Vector2>();
         rb.linearVelocityX = move.x * moveSpeed;
         rb.linearVelocityY = move.y * moveSpeed;
@@ -64,15 +63,16 @@ public class charactèrecontroleur : MonoBehaviour
         }
         */
         
-            animator.SetFloat("AbsSpeedY", Mathf.Abs(rb.linearVelocityY));
-            animator.SetFloat("AbsSpeedX",Mathf.Abs(rb.linearVelocityX));
-            //animator.SetBool("crouch", true);
+        
+        animator.SetFloat("AbsSpeedY", Mathf.Abs(rb.linearVelocityY));
+        animator.SetFloat("AbsSpeedX", Mathf.Abs(rb.linearVelocityX));
+        //animator.SetBool("jump", true);
 
-    spriteRenderer.flipX = rb.linearVelocityX < 0;
+        spriteRenderer.flipX = rb.linearVelocityX < 0;
 
         if (crouchAction.WasPressedThisFrame() && moveSpeed == 5)
         {
-            
+            animator.SetBool("crouch", true);
             moveSpeed = 2;
             scaleChange = new Vector2(0.39f, 0.39f);
             square.transform.localScale = scaleChange;
@@ -80,8 +80,9 @@ public class charactèrecontroleur : MonoBehaviour
             square.transform.position = positionChange;
         }
 
-        if (crouchAction.WasReleasedThisFrame() && canUncrouch == true && moveSpeed == 2)
+        if (crouchAction.WasReleasedThisFrame() && animator.GetBool("canUncrouch") == true && moveSpeed == 2)
             {
+                animator.SetBool("crouch", false);
                 moveSpeed = 5;
                 scaleChange = new Vector2(0.54038f, 0.54038f);
                 square.transform.localScale = scaleChange;
