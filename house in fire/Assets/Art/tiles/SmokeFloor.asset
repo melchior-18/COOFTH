@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: floor_0
+  m_Name: SmokeFloor
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -4373184736405950995, guid: fba99289a754c2843a836bf96e93aaea, type: 3}
-  m_Color: {r: 1, g: 0.5019608, b: 0.16078432, a: 1}
+  m_Sprite: {fileID: 7482667652216324306, guid: 62185b046919123408129f76ca91aa4d, type: 3}
+  m_Color: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
   m_Transform:
     e00: 1
     e01: 0
