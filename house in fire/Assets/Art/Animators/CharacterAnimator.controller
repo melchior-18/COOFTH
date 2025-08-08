@@ -8,11 +8,17 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
+  - m_ConditionMode: 4
     m_ConditionEvent: AbsSpeedY
     m_EventTreshold: 0.01
   - m_ConditionMode: 2
     m_ConditionEvent: crouch
+    m_EventTreshold: 0.01
+  - m_ConditionMode: 2
+    m_ConditionEvent: jump
+    m_EventTreshold: 0
+  - m_ConditionMode: 3
+    m_ConditionEvent: AbsSpeedX
     m_EventTreshold: 0.01
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2730302467876725189}
@@ -65,12 +71,15 @@ AnimatorStateTransition:
   - m_ConditionMode: 3
     m_ConditionEvent: AbsSpeedX
     m_EventTreshold: 0.01
+  - m_ConditionMode: 4
+    m_ConditionEvent: AbsSpeedY
+    m_EventTreshold: 0.01
   - m_ConditionMode: 2
     m_ConditionEvent: crouch
     m_EventTreshold: 0
-  - m_ConditionMode: 4
-    m_ConditionEvent: AbsSpeedX
-    m_EventTreshold: 0.01
+  - m_ConditionMode: 2
+    m_ConditionEvent: jump
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6457032250436356454}
   m_Solo: 0
@@ -98,6 +107,12 @@ AnimatorStateTransition:
     m_EventTreshold: 0.01
   - m_ConditionMode: 2
     m_ConditionEvent: crouch
+    m_EventTreshold: 0.01
+  - m_ConditionMode: 2
+    m_ConditionEvent: jump
+    m_EventTreshold: 0
+  - m_ConditionMode: 4
+    m_ConditionEvent: AbsSpeedX
     m_EventTreshold: 0.01
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2980361396081559538}
@@ -341,6 +356,9 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: jump
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: crouch
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2200532028597384492}
