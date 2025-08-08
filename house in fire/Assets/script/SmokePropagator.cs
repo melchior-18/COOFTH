@@ -51,7 +51,7 @@ public class SmokePropagator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time - lastUpdate > .137f)
+        if (Time.time - lastUpdate > .3f)
         {
             lastUpdate = Time.time;
 
