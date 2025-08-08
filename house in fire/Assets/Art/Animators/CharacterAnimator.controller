@@ -10,6 +10,9 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: AbsSpeedY
+    m_EventTreshold: -0.01
+  - m_ConditionMode: 4
+    m_ConditionEvent: AbsSpeedX
     m_EventTreshold: 0.01
   - m_ConditionMode: 2
     m_ConditionEvent: crouch
@@ -17,9 +20,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: jump
     m_EventTreshold: 0
-  - m_ConditionMode: 3
-    m_ConditionEvent: AbsSpeedX
-    m_EventTreshold: 0.01
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2730302467876725189}
   m_Solo: 0
@@ -33,7 +33,7 @@ AnimatorStateTransition:
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
+  m_CanTransitionToSelf: 0
 --- !u!1102 &-6457032250436356454
 AnimatorState:
   serializedVersion: 6
@@ -306,6 +306,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: crouch
     m_EventTreshold: 0
+  - m_ConditionMode: 3
+    m_ConditionEvent: AbsSpeedY
+    m_EventTreshold: -0.01
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8999360222994944747}
   m_Solo: 0
