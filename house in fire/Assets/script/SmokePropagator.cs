@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
 public class SmokePropagator : MonoBehaviour
 {
@@ -8,7 +9,8 @@ public class SmokePropagator : MonoBehaviour
     [SerializeField] private Tilemap wallTileMap;
     [SerializeField] private Tile SmokeFloor;
     [SerializeField] private Tile FloorTile;
-
+    [SerializeField] private Tile EscapeRoute;
+    
     [SerializeField] private List<Vector2Int> allPositions = new List<Vector2Int>();
 
     [SerializeField] private float lastUpdate = -Mathf.Infinity;
@@ -20,6 +22,7 @@ public class SmokePropagator : MonoBehaviour
 
     private float tileWidth;
 
+    private Vector2 posEscapeRouteTile;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,7 +37,16 @@ public class SmokePropagator : MonoBehaviour
         player = GameObject.Find("Idle_0");
 
         tileWidth = floorTileMap.cellSize.x;
-}
+        foreach (var pos in wallTileMap.cellBounds.allPositionsWithin)
+        {
+            Vector3Int pos3D = new Vector3Int(pos.x, pos.y, 0);
+            if (wallTileMap.GetTile(pos3D).name == EscapeRoute.name)
+            {
+                posEscapeRouteTile = new Vector2Int(pos.x, pos.y);
+            }
+        }
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -43,7 +55,7 @@ public class SmokePropagator : MonoBehaviour
         {
             lastUpdate = Time.time;
 
-            player.GetComponent<charactèrecontroleur>().IsBreathing = true;
+            player.GetComponent<charactï¿½recontroleur>().IsBreathing = true;
 
             foreach (var pos in allPositions)
             {
@@ -85,10 +97,15 @@ public class SmokePropagator : MonoBehaviour
                 playerPos = player.transform.position;
                 if ((playerPos - pos).sqrMagnitude < tileWidth * 1.4f && floorTileMap.GetTile(pos3D) == SmokeFloor)
                 {
-                    player.GetComponent<charactèrecontroleur>().IsBreathing = false;
-                    player.GetComponent<charactèrecontroleur>().moveSpeed = 3;
+                    player.GetComponent<charactï¿½recontroleur>().IsBreathing = false;
+                    player.GetComponent<charactï¿½recontroleur>().moveSpeed = 3;
                 }
             }
+        }
+        //EscapeRoute  [SerializeField] private Tile EscapeRoute;
+        if ((playerPos - posEscapeRouteTile).sqrMagnitude < tileWidth * 0.9f ) // calcul la distance entre le joueur et la tuile de gagner
+        {
+            SceneManager.LoadScene("victory"); // si on touche la tuile d'escape alors on gagne et on arrive au menu de victoire.
         }
     }
 
