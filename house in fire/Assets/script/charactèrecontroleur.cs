@@ -131,28 +131,6 @@ public class charactèrecontroleur : MonoBehaviour
                 square.transform.position.y - square.transform.position.y / 9);
                 square.transform.position = positionChange;*/
             }
-        }
-
-        playerPos = transform.position;
-        
+        }   
     }
-
-    //  smoke conllusion
-
-    /*
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Smoke")
-        {
-            IsBreathing = false;
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Smoke")
-        {
-            IsBreathing = true;
-        }
-    }*/
 }
