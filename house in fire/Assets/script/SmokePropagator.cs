@@ -14,6 +14,8 @@ public class SmokePropagator : MonoBehaviour
 
     private GameObject smoke;
 
+    private GameObject player;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,6 +26,8 @@ public class SmokePropagator : MonoBehaviour
         }
 
         smoke = GameObject.Find("Smoke");
+
+        player = GameObject.Find("Idle_0");
     }
 
     // Update is called once per frame
