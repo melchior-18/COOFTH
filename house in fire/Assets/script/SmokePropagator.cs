@@ -7,6 +7,7 @@ public class SmokePropagator : MonoBehaviour
     [SerializeField] private Tilemap floorTileMap;
     [SerializeField] private Tilemap wallTileMap;
     [SerializeField] private Tile SmokeFloor;
+    [SerializeField] private Tile FloorTile;
 
     [SerializeField] private List<Vector2Int> allPositions = new List<Vector2Int>();
 
@@ -74,7 +75,13 @@ public class SmokePropagator : MonoBehaviour
 
                 if (Random.Range(0, 8) < (compteurFumee))
                 {
-                    floorTileMap.SetTile(pos3D, SmokeFloor);
+                    print("smoked");
+                    print(floorTileMap.GetTile(pos3D));
+                    if(floorTileMap.GetTile(pos3D) == FloorTile)
+                    {
+                        print("and floor tile");
+                        floorTileMap.SetTile(pos3D, SmokeFloor);
+                    }
                 }
 
                 playerPos = player.transform.position;
