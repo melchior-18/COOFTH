@@ -319,6 +319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   barreVie: {fileID: 148627356}
+  dead: 0
   IsBreathing: 1
 --- !u!1 &97085759
 GameObject:
@@ -2584,8 +2585,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 663.67, y: 452}
-  m_SizeDelta: {x: 507.3403, y: 92.8626}
+  m_AnchoredPosition: {x: 215.83, y: 217.69}
+  m_SizeDelta: {x: 507.34033, y: 92.86261}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1382003370
 MonoBehaviour:
@@ -16699,7 +16700,7 @@ TilemapCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
