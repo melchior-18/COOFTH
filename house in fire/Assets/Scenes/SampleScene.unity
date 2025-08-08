@@ -568,7 +568,7 @@ MonoBehaviour:
   floorTileMap: {fileID: 1920950491}
   wallTileMap: {fileID: 982021132}
   SmokeFloor: {fileID: 11400000, guid: b67874c3bea30f04ba117dbba947ccd7, type: 2}
-  FloorTile: {fileID: 0}
+  FloorTile: {fileID: 11400000, guid: 2ddc369f2c1845142b187c838a9f8848, type: 2}
   allPositions: []
   lastUpdate: -Infinity
 --- !u!1 &148627352

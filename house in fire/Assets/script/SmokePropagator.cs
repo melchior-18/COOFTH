@@ -77,7 +77,9 @@ public class SmokePropagator : MonoBehaviour
                 {
                     print("smoked");
                     print(floorTileMap.GetTile(pos3D));
-                    if(floorTileMap.GetTile(pos3D) == FloorTile)
+                    print(FloorTile);
+                    print("done");
+                    if (floorTileMap.GetTile(pos3D).name == FloorTile.name)
                     {
                         print("and floor tile");
                         floorTileMap.SetTile(pos3D, SmokeFloor);
