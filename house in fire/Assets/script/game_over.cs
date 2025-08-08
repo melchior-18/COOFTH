@@ -1,31 +1,33 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-public class NewMonoBehaviourScript : MonoBehaviour
+
+public class game_over : MonoBehaviour
 {
-    private InputAction restart;
+    public InputAction restart;
 
     void Start()
     {
-        restart = InputSystem.actions.FindAction("Restart");
+        restart= InputSystem.actions.FindAction("Restart");
+    }
+    
+
+    void OnEnable()
+    {
+        restart.Enable();
     }
 
-    // Update is called once per frame
+    void OnDisable()
+    {
+        restart.Disable();
+    }
+
     void Update()
     {
         if (restart.WasPressedThisFrame())
         {
-            print("RestartAction was pressed");
             SceneManager.LoadScene("SampleScene");
-            print("Scene have been changed");
+            Debug.Log("Scene change worked");
         }
-
-        /*
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("Space has been pressed");
-            SceneManager.LoadScene("SampleScene");
-            print("The scene changement worked");
-        }*/
     }
 }
