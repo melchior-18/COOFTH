@@ -1,20 +1,24 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Tilemaps;
 
 public class charactèrecontroleur : MonoBehaviour
 {
+    [SerializeField] private Tile smokeTile;
+
     [SerializeField] private float moveSpeed;
     [SerializeField] barre_vie barreVie;
     //[SerializeField] private float jumpForce;
     //[SerializeField] private LayerMask groundlayer;
+    public bool dead;
     private Rigidbody2D rb;
     private GameObject square;
     private Vector2 scaleChange;
     private Vector2 positionChange;
     Animator animator;
     
-    [SerializeField] private bool IsBreathing = true;
+    public bool IsBreathing = true;
 
     private InputAction moveAction;
 
@@ -35,7 +39,6 @@ public class charactèrecontroleur : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         crouchAction = InputSystem.actions.FindAction("Crouch");
         animator = GetComponent<Animator>();
-        animator.SetBool("canUncrouch", true);
 
         square = GameObject.Find("Idle_0");
     }
@@ -105,36 +108,39 @@ public class charactèrecontroleur : MonoBehaviour
             {
                 animator.SetBool("crouch", true);
                 moveSpeed = 2;
+                /*
                 scaleChange = new Vector2(0.39f, 0.39f);
                 square.transform.localScale = scaleChange;
                 positionChange = new Vector2(square.transform.position.x,
-                    square.transform.position.y + square.transform.position.y / 8);
-                square.transform.position = positionChange;
+                square.transform.position.y + square.transform.position.y / 8);
+                square.transform.position = positionChange;*/
             }
 
             if (crouchAction.WasReleasedThisFrame() && animator.GetBool("canUncrouch") == true && moveSpeed == 2)
             {
                 animator.SetBool("crouch", false);
                 moveSpeed = 5;
+                /*
                 scaleChange = new Vector2(0.54038f, 0.54038f);
                 square.transform.localScale = scaleChange;
                 positionChange = new Vector2(square.transform.position.x,
-                    square.transform.position.y - square.transform.position.y / 9);
-                square.transform.position = positionChange;
+                square.transform.position.y - square.transform.position.y / 9);
+                square.transform.position = positionChange;*/
             }
         }
     }
     
     //  smoke conllusion
-    
+    /*
     void OnTriggerEnter2D( Collider2D col)
     {
-        if (col.gameObject.tag == "Smoke")
+        if (col.gameObject.GetType(Tilemap));
         {
             IsBreathing = false;
         }
         
-    }
+    }*/
+
     void OnTriggerExit2D( Collider2D col)
     {
         if (col.gameObject.tag == "Smoke")

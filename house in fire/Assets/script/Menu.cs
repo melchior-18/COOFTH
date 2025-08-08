@@ -1,30 +1,29 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-
-public class game_over : MonoBehaviour
+public class Menu : MonoBehaviour
 {
-    public InputAction restart;
+    public InputAction start;
 
     void Start()
     {
-        restart= InputSystem.actions.FindAction("Restart");
+        start= InputSystem.actions.FindAction("Restart");
     }
     
 
     void OnEnable()
     {
-        restart.Enable();
+        start.Enable();
     }
 
     void OnDisable()
     {
-        restart.Disable();
+        start.Disable();
     }
 
     void Update()
     {
-        if (restart.WasPressedThisFrame())
+        if (start.WasPressedThisFrame())
         {
             SceneManager.LoadScene("SampleScene");
             Debug.Log("Scene change worked");
