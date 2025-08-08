@@ -1,16 +1,15 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-
 public class game_over : MonoBehaviour
 {
     public InputAction restart;
 
     void Start()
     {
-        restart= InputSystem.actions.FindAction("Restart");
+        restart = InputSystem.actions.FindAction("Restart");
     }
-    
+
 
     void OnEnable()
     {
@@ -24,6 +23,7 @@ public class game_over : MonoBehaviour
 
     void Update()
     {
+        
         if (restart.WasPressedThisFrame())
         {
             SceneManager.LoadScene("SampleScene");
