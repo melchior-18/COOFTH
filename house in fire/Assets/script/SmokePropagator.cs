@@ -33,7 +33,7 @@ public class SmokePropagator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time - lastUpdate > 3f)
+        if (Time.time - lastUpdate > .3f)
         {
             lastUpdate = Time.time;
 
@@ -69,6 +69,8 @@ public class SmokePropagator : MonoBehaviour
                 {
                     floorTileMap.SetTile(pos3D, SmokeFloor);
                 }
+
+
             }
         }
     }

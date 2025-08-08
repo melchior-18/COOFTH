@@ -318,7 +318,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72d4d11d0ef997948a4461fb623a7b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smokeTile: {fileID: 0}
+  floorTileMap: {fileID: 1920950491}
+  wallTileMap: {fileID: 982021132}
+  SmokeFloor: {fileID: 11400000, guid: b67874c3bea30f04ba117dbba947ccd7, type: 2}
   moveSpeed: 5
   barreVie: {fileID: 148627356}
   dead: 0
