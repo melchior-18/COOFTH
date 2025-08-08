@@ -8,6 +8,7 @@ public class Menu : MonoBehaviour
     void Start()
     {
         start= InputSystem.actions.FindAction("Restart");
+        
     }
     
 
