@@ -8,6 +8,7 @@ public class charactèrecontroleur : MonoBehaviour
     [SerializeField] barre_vie barreVie;
     //[SerializeField] private float jumpForce;
     //[SerializeField] private LayerMask groundlayer;
+    public bool dead;
     private Rigidbody2D rb;
     private GameObject square;
     private Vector2 scaleChange;
@@ -35,7 +36,6 @@ public class charactèrecontroleur : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         crouchAction = InputSystem.actions.FindAction("Crouch");
         animator = GetComponent<Animator>();
-        animator.SetBool("canUncrouch", true);
 
         square = GameObject.Find("Idle_0");
     }

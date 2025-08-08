@@ -2772,6 +2772,10 @@ PrefabInstance:
       value: MainCanCrouchTrigger
       objectReference: {fileID: 0}
     - target: {fileID: 6854498082062285850, guid: 4e36a7567fa1fc948935ab618cf81e20, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854498082062285850, guid: 4e36a7567fa1fc948935ab618cf81e20, type: 3}
       propertyPath: m_RenderingLayerMask
       value: 0
       objectReference: {fileID: 0}
