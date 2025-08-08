@@ -5,7 +5,9 @@ using UnityEngine.Tilemaps;
 
 public class charactèrecontroleur : MonoBehaviour
 {
-    [SerializeField] private Tile smokeTile;
+    [SerializeField] private Tilemap floorTileMap;
+    [SerializeField] private Tilemap wallTileMap;
+    [SerializeField] private Tile SmokeFloor;
 
     [SerializeField] private float moveSpeed;
     [SerializeField] barre_vie barreVie;
@@ -27,6 +29,8 @@ public class charactèrecontroleur : MonoBehaviour
     //private InputAction jumpAction;
 
     private InputAction crouchAction;
+
+    private Vector3 playerPos;
 
     //private int nbJumpLeft = 0;
 
@@ -127,25 +131,6 @@ public class charactèrecontroleur : MonoBehaviour
                 square.transform.position.y - square.transform.position.y / 9);
                 square.transform.position = positionChange;*/
             }
-        }
-    }
-    
-    //  smoke conllusion
-    /*
-    void OnTriggerEnter2D( Collider2D col)
-    {
-        if (col.gameObject.GetType(Tilemap));
-        {
-            IsBreathing = false;
-        }
-        
-    }*/
-
-    void OnTriggerExit2D( Collider2D col)
-    {
-        if (col.gameObject.tag == "Smoke")
-        {
-            IsBreathing = true;
-        }
+        }   
     }
 }
