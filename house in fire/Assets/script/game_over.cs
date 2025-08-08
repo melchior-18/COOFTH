@@ -16,10 +16,11 @@ public class game_over : MonoBehaviour
         restart.Enable();
     }
 
+    /*
     void OnDisable()
     {
         restart.Disable();
-    }
+    }*/
 
     void Update()
     {
