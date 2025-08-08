@@ -9,7 +9,7 @@ public class charactèrecontroleur : MonoBehaviour
     [SerializeField] private Tilemap wallTileMap;
     [SerializeField] private Tile SmokeFloor;
 
-    [SerializeField] private float moveSpeed;
+    [SerializeField] public float moveSpeed;
     [SerializeField] barre_vie barreVie;
     //[SerializeField] private float jumpForce;
     //[SerializeField] private LayerMask groundlayer;
@@ -68,6 +68,7 @@ public class charactèrecontroleur : MonoBehaviour
             }
             else
             {
+                moveSpeed = 5f;
                 barreVie.PrendreDegats(-20 * Time.deltaTime);
             }
 

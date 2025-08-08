@@ -39,7 +39,7 @@ public class SmokePropagator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time - lastUpdate > .3f)
+        if (Time.time - lastUpdate > .137f)
         {
             lastUpdate = Time.time;
 
@@ -86,6 +86,7 @@ public class SmokePropagator : MonoBehaviour
                 if ((playerPos - pos).sqrMagnitude < tileWidth * 1.4f && floorTileMap.GetTile(pos3D) == SmokeFloor)
                 {
                     player.GetComponent<charactèrecontroleur>().IsBreathing = false;
+                    player.GetComponent<charactèrecontroleur>().moveSpeed = 3;
                 }
             }
         }
