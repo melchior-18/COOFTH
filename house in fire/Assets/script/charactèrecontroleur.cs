@@ -64,9 +64,27 @@ public class charactèrecontroleur : MonoBehaviour
                 barreVie.PrendreDegats(-20 * Time.deltaTime);
             }
 
+            int swapX = 1;
+            int swapY = 1;
+            bool swapDirection = false;
+            if (barreVie.GetDegat()<50)
+            {
+                swapX = -1;
+                swapY = -1;
+            }
+
             Vector2 move = moveAction.ReadValue<Vector2>();
-            rb.linearVelocityX = move.x * moveSpeed;
-            rb.linearVelocityY = move.y * moveSpeed;
+            if (swapDirection)
+            {
+                rb.linearVelocityX = swapX * move.y * moveSpeed;
+                rb.linearVelocityY = swapY * move.x * moveSpeed;
+            }
+            else
+            {
+                rb.linearVelocityX = swapX * move.x * moveSpeed;
+                rb.linearVelocityY = swapY * move.y * moveSpeed;
+            }
+
             /*
             if (jumpAction.WasPressedThisFrame()&& nbJumpLeft>0)
             {
@@ -77,11 +95,11 @@ public class charactèrecontroleur : MonoBehaviour
             */
 
 
-            animator.SetFloat("AbsSpeedY", Mathf.Abs(rb.linearVelocityY));
+            animator.SetFloat("AbsSpeedY", rb.linearVelocityY);
             animator.SetFloat("AbsSpeedX", Mathf.Abs(rb.linearVelocityX));
             //animator.SetBool("jump", true);
 
-            spriteRenderer.flipX = rb.linearVelocityX < 0;
+            spriteRenderer.flipX = rb.linearVelocityX > -0.1;
 
             if (crouchAction.WasPressedThisFrame() && moveSpeed == 5)
             {

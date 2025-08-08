@@ -457,6 +457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barreDeVieImage: {fileID: 148627354}
   vieMax: 100
+  isDead: 0
 --- !u!1 &397741526
 GameObject:
   m_ObjectHideFlags: 0

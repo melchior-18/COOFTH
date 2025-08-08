@@ -31,6 +31,11 @@ public class barre_vie : MonoBehaviour
                 
         }
     }
+    
+    public float GetDegat()
+    {
+        return vieActuelle ;
+    }
 
     private void MettreAJourBarre()
         {
