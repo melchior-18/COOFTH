@@ -15,6 +15,9 @@ public class SmokePropagator : MonoBehaviour
     private GameObject smoke;
 
     private GameObject player;
+    private Vector2 playerPos;
+
+    private float tileWidth;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,7 +31,9 @@ public class SmokePropagator : MonoBehaviour
         smoke = GameObject.Find("Smoke");
 
         player = GameObject.Find("Idle_0");
-    }
+
+        tileWidth = floorTileMap.cellSize.x;
+}
 
     // Update is called once per frame
     void Update()
@@ -36,6 +41,8 @@ public class SmokePropagator : MonoBehaviour
         if (Time.time - lastUpdate > .3f)
         {
             lastUpdate = Time.time;
+
+            player.GetComponent<charactèrecontroleur>().IsBreathing = true;
 
             foreach (var pos in allPositions)
             {
@@ -70,7 +77,11 @@ public class SmokePropagator : MonoBehaviour
                     floorTileMap.SetTile(pos3D, SmokeFloor);
                 }
 
-
+                playerPos = player.transform.position;
+                if ((playerPos - pos).sqrMagnitude < tileWidth * 1.4f && floorTileMap.GetTile(pos3D) == SmokeFloor)
+                {
+                    player.GetComponent<charactèrecontroleur>().IsBreathing = false;
+                }
             }
         }
     }

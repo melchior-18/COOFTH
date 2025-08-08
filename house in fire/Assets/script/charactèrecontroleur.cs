@@ -134,10 +134,12 @@ public class charactèrecontroleur : MonoBehaviour
         }
 
         playerPos = transform.position;
+        
     }
 
     //  smoke conllusion
 
+    /*
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Smoke")
@@ -152,5 +154,5 @@ public class charactèrecontroleur : MonoBehaviour
         {
             IsBreathing = true;
         }
-    }
+    }*/
 }
