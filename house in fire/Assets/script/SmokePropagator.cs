@@ -75,10 +75,6 @@ public class SmokePropagator : MonoBehaviour
 
                 if (Random.Range(0, 8) < (compteurFumee))
                 {
-                    print("smoked");
-                    print(floorTileMap.GetTile(pos3D));
-                    print(FloorTile);
-                    print("done");
                     if (floorTileMap.GetTile(pos3D).name == FloorTile.name)
                     {
                         print("and floor tile");

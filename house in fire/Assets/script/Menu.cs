@@ -7,7 +7,7 @@ public class Menu : MonoBehaviour
 
     void Start()
     {
-        start= InputSystem.actions.FindAction("Restart");
+        start= InputSystem.actions.FindAction("Start");
         
     }
     

@@ -561,7 +561,7 @@ MonoBehaviour:
     m_Name: Restart
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 71ab9380-0de3-4511-9dbf-bfcc066f8d58
+    m_Id: ad1b7df0-dcdf-4fbe-b09c-f308b2ae16c4
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
