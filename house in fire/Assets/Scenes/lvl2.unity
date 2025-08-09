@@ -562,14 +562,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 97085759}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 894418b4d61ace648aab5b21a903313d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3650c77ec6b37b748aa942c23de04245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   floorTileMap: {fileID: 1920950491}
   wallTileMap: {fileID: 982021132}
   SmokeFloor: {fileID: 11400000, guid: b67874c3bea30f04ba117dbba947ccd7, type: 2}
   FloorTile: {fileID: 11400000, guid: 2ddc369f2c1845142b187c838a9f8848, type: 2}
-  EscapeRoute: {fileID: 11400000, guid: 47565c55d7266e6498281217bded4555, type: 2}
+  EscapeRoute: {fileID: 11400000, guid: 263a7f9a53c4dc740b76e26b4902dd91, type: 2}
   allPositions: []
   lastUpdate: -Infinity
 --- !u!1 &148627352
@@ -17710,7 +17710,6 @@ GameObject:
   - component: {fileID: 1135824375}
   - component: {fileID: 1135824377}
   - component: {fileID: 1135824376}
-  - component: {fileID: 1135824378}
   m_Layer: 7
   m_Name: Tilemap (1)
   m_TagString: Untagged
