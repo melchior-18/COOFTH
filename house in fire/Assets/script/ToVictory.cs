@@ -56,7 +56,7 @@ public class ToVictory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time - lastUpdate > .2f)
+        if (Time.time - lastUpdate > .18f)
         {
             lastUpdate = Time.time;
 

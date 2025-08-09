@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
+    path: Assets/Scenes/lvl2.unity
+    guid: e28dcf72632e7fa49935161953db2e49
+  - enabled: 1
     path: Assets/Scenes/Game_over.unity
     guid: ae9682f749a23c8448ab4c4cf825ab14
   - enabled: 1
