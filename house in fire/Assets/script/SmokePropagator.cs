@@ -10,6 +10,7 @@ public class SmokePropagator : MonoBehaviour
     [SerializeField] private Tile SmokeFloor;
     [SerializeField] private Tile FloorTile;
     [SerializeField] private Tile EscapeRoute;
+    public float Delay;
     
     [SerializeField] private List<Vector2Int> allPositions = new List<Vector2Int>();
 
@@ -56,7 +57,7 @@ public class SmokePropagator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time - lastUpdate > .3f)
+        if (Time.time - lastUpdate > Delay)
         {
             lastUpdate = Time.time;
 
