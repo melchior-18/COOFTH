@@ -23,6 +23,7 @@ public class SmokePropagator : MonoBehaviour
     private float tileWidth;
 
     private Vector2 posEscapeRouteTile;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -37,15 +38,19 @@ public class SmokePropagator : MonoBehaviour
         player = GameObject.Find("Idle_0");
 
         tileWidth = floorTileMap.cellSize.x;
-        foreach (var pos in wallTileMap.cellBounds.allPositionsWithin)
+
+        
+        foreach (var pos in floorTileMap.cellBounds.allPositionsWithin)
         {
             Vector3Int pos3D = new Vector3Int(pos.x, pos.y, 0);
-            if (wallTileMap.GetTile(pos3D).name == EscapeRoute.name)
+
+            TileBase tile = floorTileMap.GetTile(pos3D);
+
+            if (tile != null && tile == EscapeRoute)
             {
                 posEscapeRouteTile = new Vector2Int(pos.x, pos.y);
             }
         }
-
     }
 
     // Update is called once per frame
@@ -55,7 +60,7 @@ public class SmokePropagator : MonoBehaviour
         {
             lastUpdate = Time.time;
 
-            player.GetComponent<charact�recontroleur>().IsBreathing = true;
+            player.GetComponent<charactèrecontroleur>().IsBreathing = true;
 
             foreach (var pos in allPositions)
             {
@@ -89,7 +94,6 @@ public class SmokePropagator : MonoBehaviour
                 {
                     if (floorTileMap.GetTile(pos3D).name == FloorTile.name)
                     {
-                        print("and floor tile");
                         floorTileMap.SetTile(pos3D, SmokeFloor);
                     }
                 }
@@ -97,8 +101,8 @@ public class SmokePropagator : MonoBehaviour
                 playerPos = player.transform.position;
                 if ((playerPos - pos).sqrMagnitude < tileWidth * 1.4f && floorTileMap.GetTile(pos3D) == SmokeFloor)
                 {
-                    player.GetComponent<charact�recontroleur>().IsBreathing = false;
-                    player.GetComponent<charact�recontroleur>().moveSpeed = 3;
+                    player.GetComponent<charactèrecontroleur>().IsBreathing = false;
+                    player.GetComponent<charactèrecontroleur>().moveSpeed = 3;
                 }
             }
         }
