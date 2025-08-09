@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
 
-public class SmokePropagator : MonoBehaviour
+public class ToVictory : MonoBehaviour
 {
     [SerializeField] private Tilemap floorTileMap;
     [SerializeField] private Tilemap wallTileMap;
@@ -56,7 +56,7 @@ public class SmokePropagator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time - lastUpdate > .3f)
+        if (Time.time - lastUpdate > .2f)
         {
             lastUpdate = Time.time;
 
@@ -109,7 +109,7 @@ public class SmokePropagator : MonoBehaviour
         //EscapeRoute  [SerializeField] private Tile EscapeRoute;
         if ((playerPos - posEscapeRouteTile).sqrMagnitude < tileWidth * 0.9f ) // calcul la distance entre le joueur et la tuile de gagner
         {
-            SceneManager.LoadScene("lvl2"); // si on touche la tuile d'escape alors on gagne et on arrive au menu de victoire.
+            SceneManager.LoadScene("victory"); // si on touche la tuile d'escape alors on gagne et on arrive au menu de victoire.
         }
     }
 
