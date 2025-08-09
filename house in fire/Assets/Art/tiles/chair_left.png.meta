@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a07105ef5ceadad45b6270a86046f455
+guid: 32bae85c51ca43e4694a28c9c7982bbe
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1821944702024254127
-    second: tablewithflower_0
+      213: 7697708877465968094
+    second: chair_left_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tablewithflower_0
+      name: chair_left_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fa28f8cad09d84910800000000000000
-      internalID: 1821944702024254127
+      spriteID: edddab99071c3da60800000000000000
+      internalID: 7697708877465968094
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      tablewithflower_0: 1821944702024254127
+      chair_left_0: 7697708877465968094
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
