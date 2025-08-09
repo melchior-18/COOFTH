@@ -16,12 +16,6 @@ public class Menu : MonoBehaviour
     {
         start.Enable();
     }
-
-    void OnDisable()
-    {
-        start.Disable();
-    }
-
     void Update()
     {
         if (start.WasPressedThisFrame())
